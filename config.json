@@ -1,0 +1,13 @@
+{
+  "googleFlights": {
+    "title": "Lacona Google Flights",
+    "type": "object",
+    "properties": {
+      "message": {
+        "title": "Alert message",
+        "type": "string",
+        "default": "Hello, world!"
+      }
+    }
+  }
+}
