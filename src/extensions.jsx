@@ -10,12 +10,11 @@ export const MyNewCommand = {
   extends: [Command],
 
   execute (result) {
-    console.log(JSON.stringify(result));
     const start = cleanDate(result.start);
     const end = cleanDate(result.end);
     const origin = result.origin;
     const destination = result.destination;
-    const directionStr = encodeURI('https://www.google.com/flights/#search;f='+origin+';t='+destination+';d='+start+';r=' + end);
+    const directionStr = createUrl(origin,destination,start,end);
     openURL({url: encodeURI(directionStr)});
   },
 
@@ -14415,4 +14414,9 @@ const airports = [
 function cleanDate(date) {
   return JSON.stringify(date).split('T')[0].replace('"','');
 }
+
+function createUrl(origin,destination,start,end) {
+  return encodeURI('https://www.google.com/flights/#search;f='+origin+';t='+destination+';d='+start+';r=' + end);
+}
+
 export default [MyNewCommand]
